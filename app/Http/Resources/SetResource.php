@@ -16,8 +16,8 @@ class SetResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'player1' => $this->player1,
-            'player1_id' => $this->player2,
+            'player1' => $this->player1->name,
+            'player2' => $this->player2->name,
             'date' => $this->date,
             'table_tupe' => $this->table_tupe,
             'tournament' => $this->tournament,
