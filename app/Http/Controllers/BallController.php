@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Ball;
 use Illuminate\Http\Request;
+use App\Http\Resources\BallResource;
+use Illuminate\Support\Facades\Log;
+
 
 class BallController extends Controller
 {
@@ -35,7 +38,27 @@ class BallController extends Controller
      */
     public function store(Request $request)
     {
+        $params = $request->all();
         $ball = Ball::create($request->all());
+        $id = $ball->id;
+
+
+        $stroke = $ball->stroke_type;
+        $from = $ball->from;
+        $to = $ball->to;
+        // $using = $ball
+        $winner = $ball->winning_player->name;
+        $loser = $ball->losing_player->name;
+
+        Log::debug("Ball Created Successfully ball \n
+         \n id: $id 
+         \n stroke: $stroke
+         \n from: $from
+         \n to: $to
+         \n winner: $winner
+         \n loser: $loser
+         ");
+
         return $ball;
     }
 
@@ -47,7 +70,8 @@ class BallController extends Controller
      */
     public function show(Ball $ball)
     {
-        return Ball::find($ball->id);
+
+        return new BallResource(Ball::find($ball->id));
     }
 
     /**

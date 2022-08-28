@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PlayerResource;
 use App\Models\Player;
 use Illuminate\Http\Request;
 
@@ -53,7 +54,9 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        return Player::find($player);
+         $player = Player::find($player->id);
+        return new PlayerResource($player);
+
     }
 
     /**

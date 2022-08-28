@@ -18,5 +18,14 @@ class Ball extends Model
         "stroke_type",
         "is_service",
         "player_id",
+        'loser'
     ];
+
+    public function winning_player(){
+        return $this->belongsTo("App\Models\Player", 'player_id');
+    }
+
+    public function losing_player(){
+        return $this->belongsTo("App\Models\Player", 'loser');
+    }
 }

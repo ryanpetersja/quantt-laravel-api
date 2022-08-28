@@ -16,10 +16,18 @@ class Player extends Model
     ];
 
     public function setsAsPlayer1() {
-        return $this->hasMany("App\Models\Sets", 'player1_id');
+        return $this->hasMany("App\Models\Set", 'player1_id');
      }
 
      public function setsAsPlayer2() {
-        return $this->hasMany("App\Models\Sets", 'player2_id');
+        return $this->hasMany("App\Models\Set", 'player2_id');
      }
+
+     public function ballsFor(){
+         return $this->hasMany("App\Models\Ball", 'player_id');
+     }
+
+     public function ballsAgainst(){
+        return $this->hasMany("App\Models\Ball", 'loser');
+    }
 }

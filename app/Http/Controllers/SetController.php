@@ -20,7 +20,8 @@ class SetController extends Controller
         return 
          Set::all()
         ;
-        return response("Test")
+        return 
+            response("Test")
             ->header('Content-Type', "success")
             ->header('X-Header-One', 'Header Value')
             ->header('X-Header-Two', 'Header Value');
