@@ -15,7 +15,7 @@ class CreatePlayersTable extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('name')->unique();
+            $table->text('name');
             $table->text('playing_style');
             $table->boolean('right_handed');
             $table->timestamps();
