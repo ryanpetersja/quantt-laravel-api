@@ -90,7 +90,7 @@ class SetController extends Controller
      */
     public function destroy(Set $set)
     {
-         $set->destoy($set->id);
+         $set->destroy($set->id);
          return "Set Deleted";
     }
 }
