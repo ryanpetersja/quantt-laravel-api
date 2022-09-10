@@ -80,6 +80,6 @@ class PointController extends Controller
      */
     public function destroy(Point $point)
     {
-        return Point::destroy($point->id);
+        return $point->destroy($point->id);
     }
 }
