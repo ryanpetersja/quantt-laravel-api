@@ -15,7 +15,7 @@ class CreateAttributesTable extends Migration
     {
         Schema::create('attributes', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('name')->unique();
+            $table->text('name');
             $table->longText('description')->nullable();
             $table->integer('significance')->nullable();
             $table->boolean('strength')->nullable();
